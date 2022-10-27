@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect } from "react"
+import { Searcher } from "./Components/Searcher"
+import { PokemonList } from "./Components/PokemonList"
+import { connect } from 'react-redux'
+import { setPokemons as setPokemonsActions } from "./actions"
+import { getPokemons } from "./api"
 
-function App() {
-  const [count, setCount] = useState(0)
+const mapStateToProps = (state) => ({
+  pokemons: state.pokemons,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setPokemons: (value) => dispatch(setPokemonsActions(value))
+})
+
+function App({ pokemons, setPokemons }) {
+
+  useEffect(() => {
+    const fetchPokemons = async () => {
+      let pokemonsRes = await getPokemons()
+      setPokemons(pokemonsRes)
+    }
+
+    fetchPokemons()
+  }, [])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <React.Fragment>
+      <header className="flex flex-col items-center box-border p-4">
+        <h2 className="text-3xl text-fuchsia-700 font-extrabold mb-4 sm:text-5xl">POKEDUX</h2>
+        <Searcher />
+      </header>
+      <PokemonList pokemons={pokemons} />
+    </React.Fragment>
   )
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+
+/*
+  mapStateToProps:
+    es una función recibe nuestro estado y retorna un objeto cuyas propiedades van a ser enviadas a las props del componente que se está conectado a redux.
+
+  mapDispatchToProps:
+    es una función que recibe el dispatcher de redux y retorna un objeto que será mapedo a las propiedades con los action creators
+*/
