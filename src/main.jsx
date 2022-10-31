@@ -5,12 +5,11 @@ import { rootReducer } from './reducers/rootReducer'
 import { Provider } from 'react-redux'
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux'
 import thunk from 'redux-thunk'
-import { logger } from './middleware'
 import './index.css'
 
-const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composedEnhancers = composeAlt(
-  applyMiddleware(thunk, logger)
+  applyMiddleware(thunk)
 )
 
 const store = createStore(

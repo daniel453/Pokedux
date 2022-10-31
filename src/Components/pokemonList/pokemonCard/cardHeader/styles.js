@@ -12,4 +12,5 @@ export const pokemonCardCont__title_btn = `
   border-2 
   border-gray-500 
   rounded-md
+  dark:bg-slate-100
 `

@@ -7,6 +7,9 @@ export const pokemonCardCont__imgCont = `
   rounded-full 
   bg-gray-400 
   self-center 
+  dark:bg-slate-200
+  hover:border
+  hover:border-gray-200
 `
 export const pokemonCardCont__imgCont__img = `
   absolute 

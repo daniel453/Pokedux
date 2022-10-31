@@ -19,4 +19,5 @@ export const pokemonCardCont__atributeCont__atribute = `
   border-gray-800 
   rounded-md
   text-center
+  dark:border-slate-200
 `
