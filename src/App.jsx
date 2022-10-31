@@ -1,41 +1,39 @@
 import React, { useEffect } from "react"
-import { Searcher } from "./Components/Searcher"
-import { PokemonList } from "./Components/PokemonList"
-import { connect } from 'react-redux'
-import { setPokemons as setPokemonsActions } from "./actions"
-import { getPokemons } from "./api"
+import { HeaderComponent } from "./Components/header"
+import { PokemonList } from "./Components/pokemonList"
+import { fetchPokemonsWithDetails } from "./api"
+import { useDispatch, useSelector } from "react-redux"
 
-const mapStateToProps = (state) => ({
-  pokemons: state.pokemons,
-})
+// manipulando el estado con Connect:
+// const mapStateToProps = (state) => ({
+//   pokemons: state.pokemons,
+// })
 
-const mapDispatchToProps = (dispatch) => ({
-  setPokemons: (value) => dispatch(setPokemonsActions(value))
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   setPokemons: (value) => dispatch(setPokemonsActions(value))
+// })
 
-function App({ pokemons, setPokemons }) {
+// function App({ pokemons, setPokemons }) 
 
+// manipulando el estado con hooks de redux:
+
+function App() {
+  const pokemons = useSelector(state => state.pokemons.pokemons)
+  const loading = useSelector(state => state.ui.loading)
+  const dispatch = useDispatch()
   useEffect(() => {
-    const fetchPokemons = async () => {
-      let pokemonsRes = await getPokemons()
-      setPokemons(pokemonsRes)
-    }
-
-    fetchPokemons()
+    dispatch(fetchPokemonsWithDetails())
   }, [])
 
   return (
     <React.Fragment>
-      <header className="flex flex-col items-center box-border p-4">
-        <h2 className="text-3xl text-fuchsia-700 font-extrabold mb-4 sm:text-5xl">POKEDUX</h2>
-        <Searcher />
-      </header>
-      <PokemonList pokemons={pokemons} />
+      <HeaderComponent />
+      <PokemonList pokemons={pokemons} loading={loading} />
     </React.Fragment>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
 
 
 /*
