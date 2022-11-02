@@ -7,7 +7,7 @@ import { applyMiddleware, compose, legacy_createStore as createStore } from 'red
 import thunk from 'redux-thunk'
 import './index.css'
 
-const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const composedEnhancers = composeAlt(
   applyMiddleware(thunk)
 )

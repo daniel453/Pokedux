@@ -10,15 +10,12 @@ export const pokemonCardCont__atributeCont = `
   justify-center 
   mb-4 
   sm:grid-cols-2
-  
 `
 export const pokemonCardCont__atributeCont__atribute = `
   p-1 
-  text-sm 
-  font-semibold
+  text-md
+  font-bold
   border-2
-  border-gray-800 
   rounded-md
   text-center
-  dark:border-slate-200
 `

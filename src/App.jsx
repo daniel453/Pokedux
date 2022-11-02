@@ -1,45 +1,52 @@
 import React, { useEffect } from "react"
 import { HeaderComponent } from "./Components/header"
 import { PokemonList } from "./Components/pokemonList"
+import { BtnFavoritesPokemons } from "./Components/btnFavoritesPokemons"
 import { fetchPokemonsWithDetails } from "./api"
 import { useDispatch, useSelector } from "react-redux"
-
-// manipulando el estado con Connect:
-// const mapStateToProps = (state) => ({
-//   pokemons: state.pokemons,
-// })
-
-// const mapDispatchToProps = (dispatch) => ({
-//   setPokemons: (value) => dispatch(setPokemonsActions(value))
-// })
-
-// function App({ pokemons, setPokemons }) 
-
-// manipulando el estado con hooks de redux:
+import { setShowModal } from "./slices/uiSlices"
+import { FavoritesPokemons } from "./Components/favoritesPokemons"
+import { BtnNextPrevious } from "./Components/btnNextPrevious"
 
 function App() {
   const pokemons = useSelector(state => state.pokemons.pokemons)
+  const favoritesPokemons = useSelector(state => state.pokemons.favoritesPokemons)
   const loading = useSelector(state => state.ui.loading)
+  const showModal = useSelector(state => state.ui.showModal)
+  const navigation = useSelector(state => state.pokemons.navigation)
   const dispatch = useDispatch()
+
   useEffect(() => {
-    dispatch(fetchPokemonsWithDetails())
+    dispatch(fetchPokemonsWithDetails("https://pokeapi.co/api/v2/pokemon?limit=20"))
   }, [])
 
+  const getMorePokemons = url => {
+    if (url !== null) {
+      dispatch(fetchPokemonsWithDetails(url))
+    }
+  }
+  const toggleFavorites = () => {
+    dispatch(setShowModal(!showModal))
+  }
   return (
     <React.Fragment>
       <HeaderComponent />
+      <BtnNextPrevious navigation={navigation} loading={loading} getMorePokemons={getMorePokemons} />
+
       <PokemonList pokemons={pokemons} loading={loading} />
+      <BtnFavoritesPokemons
+        count={favoritesPokemons.length}
+        toggleFavorites={toggleFavorites}
+        stateModal={showModal}
+      />
+      <FavoritesPokemons
+        visible={showModal}
+        favorites={favoritesPokemons}
+      />
+
+      <BtnNextPrevious navigation={navigation} loading={loading} getMorePokemons={getMorePokemons} />
     </React.Fragment>
   )
 }
 
 export default App
-
-
-/*
-  mapStateToProps:
-    es una función recibe nuestro estado y retorna un objeto cuyas propiedades van a ser enviadas a las props del componente que se está conectado a redux.
-
-  mapDispatchToProps:
-    es una función que recibe el dispatcher de redux y retorna un objeto que será mapedo a las propiedades con los action creators
-*/

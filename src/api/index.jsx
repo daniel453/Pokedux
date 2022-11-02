@@ -1,10 +1,10 @@
 import axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { setPokemons } from "../slices/pokemonSlices";
+import { setNavigation, setPokemons } from "../slices/pokemonSlices";
 import { setLoading } from "../slices/uiSlices";
 
-const getPokemons = () => {
-  return axios.get("https://pokeapi.co/api/v2/pokemon?limit=20")
+const getPokemons = url => {
+  return axios.get(url)
     .then(res => res.data)
     .catch(error => console.error(error))
 }
@@ -14,16 +14,35 @@ const getPokemonsDetails = pokemon => {
     .then(res => res.data)
     .catch(error => console.error(error))
 }
+const getpokemonsColor = url => {
+  return axios.get(url)
+    .then(res => res.data)
+    .catch(res => console.error(res))
+}
 
 export const fetchPokemonsWithDetails = createAsyncThunk(
   'pokemonsSlices/fetchPokemonsWithDetails',
-  async (_, { dispatch }) => {
+  async (url, { dispatch }) => {
+    let navigation
     dispatch(setLoading(true))
-    let pokemonsRes = await getPokemons()
+    let pokemonsRes = await getPokemons(url)
+    console.log(pokemonsRes)
     let pokemonsDetails = await Promise.all(
       pokemonsRes.results.map(pokemon => getPokemonsDetails(pokemon))
     )
-    dispatch(setPokemons(pokemonsDetails))
+    let pokemon = await Promise.all(
+      pokemonsDetails.map(pokemon =>
+        getpokemonsColor(pokemon.species.url)
+          .then(res => ({ ...pokemon, color: res.color.name }))
+      )
+    )
+    navigation = {
+      next: pokemonsRes.next,
+      previous: pokemonsRes.previous,
+      count: pokemonsRes.count
+    }
+    dispatch(setNavigation(navigation))
+    dispatch(setPokemons(pokemon))
     dispatch(setLoading(false))
   }
 )

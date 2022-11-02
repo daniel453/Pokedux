@@ -1,5 +1,5 @@
 
-const pokemonCardCont = `
+const pokemonCardCont__black = `
   flex 
   relative 
   flex-col 
@@ -7,14 +7,187 @@ const pokemonCardCont = `
   min-h-[300px]
   box-border 
   p-5 
-  border 
-  border-gray-400 
   rounded-md 
+  border
+  bg-gray-300
+  dark:bg-transparent
   transition-all
   hover:scale-105
+  hover:border-gray-800
+`
+const pokemonCardCont__blue = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-blue-200
+  transition-all
+  dark:bg-blue-200/50
+  dark:border-transparent
+  dark:hover:border-blue-900
+  hover:scale-105
+  hover:border-blue-600
+`
+const pokemonCardCont__brown = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-yellow-700/40
+  transition-all
+  dark:bg-brown-200/50
+  dark:border-transparent
+  dark:hover:border-yellow-700
+  hover:scale-105
+  hover:border-yellow-600
+`
+const pokemonCardCont__gray = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-gray-200
+  transition-all
+  dark:bg-gray-200/50
+  dark:border-transparent
+  dark:hover:border-gray-700
+  hover:scale-105
+  hover:border-gray-600
+`
+const pokemonCardCont__green = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-green-200
+  transition-all
+  dark:bg-green-200/50
+  dark:border-transparent
+  dark:hover:border-green-700
+  hover:scale-105
+  hover:border-green-600
+`
+const pokemonCardCont__pink = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-pink-200
+  transition-all
+  dark:bg-pink-200/50
+  dark:border-transparent
+  dark:hover:border-pink-700
+  hover:scale-105
+  hover:border-pink-600
+`
+const pokemonCardCont__purple = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-purple-300
+  transition-all
+  dark:bg-purple-200/50
+  dark:border-transparent
+  dark:hover:border-purple-700
+  hover:scale-105
+  hover:border-purple-600
+`
+const pokemonCardCont__red = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-red-300
+  transition-all
+  dark:bg-red-200/50
+  dark:border-transparent
+  dark:hover:border-red-700
+  hover:scale-105
+  hover:border-red-600
+`
+const pokemonCardCont__white = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-gray-300
+  transition-all
+  dark:bg-gray-200/50
+  dark:border-transparent
+  dark:hover:border-gray-700
+  hover:scale-105
+  hover:border-gray-600
+`
+const pokemonCardCont__yellow = `
+  flex 
+  relative 
+  flex-col 
+  w-[300px] 
+  min-h-[300px]
+  box-border 
+  p-5 
+  border-2
+  rounded-md 
+  bg-yellow-200
+  transition-all
+  dark:bg-yellow-200/50
+  dark:border-transparent
+  dark:hover:border-yellow-700
+  hover:scale-105
+  hover:border-yellow-600
 `
 
 
 export {
-  pokemonCardCont,
+  pokemonCardCont__black,
+  pokemonCardCont__blue,
+  pokemonCardCont__brown,
+  pokemonCardCont__gray,
+  pokemonCardCont__green,
+  pokemonCardCont__pink,
+  pokemonCardCont__purple,
+  pokemonCardCont__red,
+  pokemonCardCont__white,
+  pokemonCardCont__yellow
 }

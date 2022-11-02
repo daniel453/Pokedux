@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loading: false
+  loading: false,
+  showModal: false
 }
 
 const uiSlice = createSlice({
@@ -10,12 +11,15 @@ const uiSlice = createSlice({
   reducers: {
     setLoading: (state, action) => {
       state.loading = action.payload
+    },
+    setShowModal: (state, action) => {
+      state.showModal = action.payload
     }
   }
 })
 
 
 
-export const { setLoading } = uiSlice.actions
+export const { setLoading, setShowModal } = uiSlice.actions
 
 export default uiSlice.reducer
