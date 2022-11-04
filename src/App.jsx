@@ -6,7 +6,7 @@ import { fetchPokemonsWithDetails } from "./api"
 import { useDispatch, useSelector } from "react-redux"
 import { setShowModal } from "./slices/uiSlices"
 import { FavoritesPokemons } from "./Components/favoritesPokemons"
-import { BtnNextPrevious } from "./Components/btnNextPrevious"
+import { Pagination } from "./Components/pagination"
 
 function App() {
   const pokemons = useSelector(state => state.pokemons.pokemons)
@@ -31,7 +31,7 @@ function App() {
   return (
     <React.Fragment>
       <HeaderComponent />
-      <BtnNextPrevious navigation={navigation} loading={loading} getMorePokemons={getMorePokemons} />
+      <Pagination navigation={navigation} loading={loading} getMorePokemons={getMorePokemons} />
 
       <PokemonList pokemons={pokemons} loading={loading} />
       <BtnFavoritesPokemons
@@ -43,8 +43,6 @@ function App() {
         visible={showModal}
         favorites={favoritesPokemons}
       />
-
-      <BtnNextPrevious navigation={navigation} loading={loading} getMorePokemons={getMorePokemons} />
     </React.Fragment>
   )
 }

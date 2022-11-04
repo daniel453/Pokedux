@@ -6,7 +6,9 @@ const initialState = {
   navigation: {
     next: null,
     previous: null,
-    count: null
+    count: null,
+    totalPages: 0,
+    page: 1,
   }
 }
 

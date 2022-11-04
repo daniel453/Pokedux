@@ -5,7 +5,7 @@ export const pokemonCardCont__title = `
 `
 export const pokemonCardCont__title_title = `
   text-xl 
-  font-semibold
+  font-bold
 `
 export const pokemonCardCont__title_btn = `
   p-1 

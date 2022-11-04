@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function useLocalStorage() {
+export function useDarkMode() {
   let initialTheme = JSON.parse(localStorage.getItem("darkmode"))
   const [darkmode, setDarkmode] = useState(initialTheme)
 

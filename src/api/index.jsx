@@ -25,8 +25,8 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
   async (url, { dispatch }) => {
     let navigation
     dispatch(setLoading(true))
+
     let pokemonsRes = await getPokemons(url)
-    console.log(pokemonsRes)
     let pokemonsDetails = await Promise.all(
       pokemonsRes.results.map(pokemon => getPokemonsDetails(pokemon))
     )
@@ -36,10 +36,12 @@ export const fetchPokemonsWithDetails = createAsyncThunk(
           .then(res => ({ ...pokemon, color: res.color.name }))
       )
     )
+
     navigation = {
       next: pokemonsRes.next,
       previous: pokemonsRes.previous,
-      count: pokemonsRes.count
+      count: pokemonsRes.count,
+      totalPages: Math.ceil(pokemonsRes.count / 20)
     }
     dispatch(setNavigation(navigation))
     dispatch(setPokemons(pokemon))

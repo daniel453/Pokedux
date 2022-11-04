@@ -1,11 +1,11 @@
 import React from "react"
-import { useLocalStorage } from "./useLocalStorage"
+import { useDarkMode } from "../../Hooks/useDarkMode"
 
 export function BtnDarkmode() {
   const {
     darkmode,
     toggleTheme
-  } = useLocalStorage()
+  } = useDarkMode()
   return (
     <label className="inline-flex relative items-center cursor-pointer">
       <input type="checkbox" id="default-toggle-size" onChange={toggleTheme} className="sr-only peer" checked={darkmode ? true : false} />
