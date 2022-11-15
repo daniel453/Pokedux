@@ -10,7 +10,6 @@ export function usePagination() {
       let page = pageState + 1
       setPagestate(page)
       callback(url)
-
     }
   }
   const handlePrevPage = (url, callback) => {

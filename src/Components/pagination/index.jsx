@@ -22,7 +22,7 @@ export function Pagination({ navigation, loading, getMorePokemons }) {
       >
         Anterior
       </button>
-      <ButtonPages handlePage={handlePage} totalPages={totalPages} getMorePokemons={getMorePokemons} page={pageState} />
+      <ButtonPages handlePage={handlePage} totalPages={totalPages} getMorePokemons={getMorePokemons} page={pageState} loading={loading} />
       <button className="text-gray-500 font-medium border-b-2 border-b-transparent text-md hover:border-b-fuchsia-700 hover:text-fuchsia-700 dark:text-white dark:hover:text-fuchsia-700 transition-all disabled:text-gray-500/50 dark:disabled:text-gray-500/50  "
         disabled={
           (loading || navigation.next === null)
