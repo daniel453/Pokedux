@@ -2,32 +2,28 @@ import React, { useEffect } from "react"
 import { HeaderComponent } from "./Components/header"
 import { PokemonList } from "./Components/pokemonList"
 import { BtnFavoritesPokemons } from "./Components/btnFavoritesPokemons"
-import { fetchPokemonsWithDetails } from "./api"
-import { useDispatch, useSelector } from "react-redux"
-import { setShowModal } from "./slices/uiSlices"
 import { FavoritesPokemons } from "./Components/favoritesPokemons"
 import { Pagination } from "./Components/pagination"
+import { usePokemons } from "./Hooks/usePokemons"
+import { useUI } from "./Hooks/useUI"
 
 function App() {
-  const pokemons = useSelector(state => state.pokemons.pokemons)
-  const favoritesPokemons = useSelector(state => state.pokemons.favoritesPokemons)
-  const loading = useSelector(state => state.ui.loading)
-  const showModal = useSelector(state => state.ui.showModal)
-  const navigation = useSelector(state => state.pokemons.navigation)
-  const dispatch = useDispatch()
+  const {
+    pokemons,
+    favoritesPokemons,
+    getMorePokemons,
+    getInitialPokemons
+  } = usePokemons()
+  const {
+    loading,
+    showModal,
+    navigation,
+    toggleFavorites
+  } = useUI()
 
   useEffect(() => {
-    dispatch(fetchPokemonsWithDetails("https://pokeapi.co/api/v2/pokemon?limit=20"))
+    getInitialPokemons()
   }, [])
-
-  const getMorePokemons = url => {
-    if (url !== null) {
-      dispatch(fetchPokemonsWithDetails(url))
-    }
-  }
-  const toggleFavorites = () => {
-    dispatch(setShowModal(!showModal))
-  }
   return (
     <React.Fragment>
       <HeaderComponent />

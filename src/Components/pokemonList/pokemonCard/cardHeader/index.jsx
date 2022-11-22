@@ -4,15 +4,15 @@ import {
   pokemonCardCont__title_title
 } from "./styles"
 
-function CardHeader({ pokemon, doSomthingToFavorites, iconFavorite }) {
+function CardHeader({ pokemon, action }) {
   return (
     <div className={pokemonCardCont__title}>
       <h3 className={pokemonCardCont__title_title}>{pokemon.name}</h3>
       <button
         className={pokemonCardCont__title_btn}
-        onClick={() => doSomthingToFavorites(pokemon)}
+        onClick={() => action.doSomthingToFavorites(pokemon)}
       >
-        {iconFavorite}
+        <img src={action.iconFavorite} alt={pokemon} />
       </button>
     </div>
   )
