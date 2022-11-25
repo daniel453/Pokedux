@@ -1,20 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { rootReducer } from './reducers/rootReducer'
+import { rootReducers } from './reducers/rootReducer'
 import { Provider } from 'react-redux'
-import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux'
-import thunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 import './index.css'
 
-const composedEnhancers = compose(
-  applyMiddleware(thunk)
-)
-
-const store = createStore(
-  rootReducer,
-  composedEnhancers
-)
+const store = configureStore({
+  reducer: rootReducers
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
