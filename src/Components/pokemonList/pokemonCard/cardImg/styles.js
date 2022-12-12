@@ -1,102 +1,51 @@
-export const pokemonCardCont__imgCont__black = `
+const pokemonCardCont__imgCont = `
   flex 
   justify-center
   w-[180px] 
   min-h-[180px] 
   my-5 
   rounded-full 
-  bg-gray-600 
   self-center 
+`
+export const pokemonCardCont__imgCont__black = `
+  ${pokemonCardCont__imgCont}
+  bg-gray-600 
 `
 export const pokemonCardCont__imgCont__blue = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-blue-500/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__brown = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-yellow-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__gray = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-gray-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__green = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-green-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__pink = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-pink-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__purple = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-purple-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__red = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-red-800/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__white = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-gray-400/50
-  self-center 
 `
 export const pokemonCardCont__imgCont__yellow = `
-  flex 
-  justify-center
-  w-[180px] 
-  min-h-[180px] 
-  my-5 
-  rounded-full 
+  ${pokemonCardCont__imgCont}
   bg-yellow-400/50
-  self-center 
 `
 
 

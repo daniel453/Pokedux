@@ -34,7 +34,7 @@ const PokemonCard = ({ pokemon }) => {
   const { getAction, iconFavorite } = useUI(pokemon)
 
   return (
-    <div className={typeColors[pokemon.color]}>
+    <div className={`animate-appearItems ${typeColors[pokemon.color]}`}>
       <CardHeader
         pokemon={pokemon}
         addToFavorites={addToFavorites}

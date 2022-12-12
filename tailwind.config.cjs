@@ -6,7 +6,17 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        appearItems: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        }
+      },
+      animation: {
+        appearItems: 'appearItems .2s ease-in-out'
+      }
+    },
   },
   plugins: [],
 }

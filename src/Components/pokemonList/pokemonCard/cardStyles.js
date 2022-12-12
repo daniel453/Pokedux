@@ -1,5 +1,4 @@
-
-const pokemonCardCont__black = `
+const pokemonCardCont = `
   flex 
   relative 
   flex-col 
@@ -8,186 +7,67 @@ const pokemonCardCont__black = `
   box-border 
   p-5 
   rounded-md 
-  border
+  transition-all
+  hover:ring-4
+  hover:scale-105
+`
+export const pokemonCardCont__black = `
+  ${pokemonCardCont}
   bg-gray-300
   dark:bg-transparent
-  transition-all
-  hover:scale-105
-  hover:border-gray-800
+  hover:ring-gray-800
 `
-const pokemonCardCont__blue = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__blue = `
+  ${pokemonCardCont}
   bg-blue-200
-  transition-all
   dark:bg-blue-200/50
-  dark:border-transparent
-  dark:hover:border-blue-900
-  hover:scale-105
-  hover:border-blue-600
+  hover:ring-blue-600
 `
-const pokemonCardCont__brown = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__brown = `
+  ${pokemonCardCont}
   bg-yellow-700/40
-  transition-all
   dark:bg-brown-200/50
-  dark:border-transparent
-  dark:hover:border-yellow-700
-  hover:scale-105
-  hover:border-yellow-600
+  hover:ring-yellow-600
 `
-const pokemonCardCont__gray = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__gray = `
+  ${pokemonCardCont}
   bg-gray-200
-  transition-all
   dark:bg-gray-200/50
-  dark:border-transparent
-  dark:hover:border-gray-700
-  hover:scale-105
-  hover:border-gray-600
+  hover:ring-gray-600
 `
-const pokemonCardCont__green = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__green = `
+${pokemonCardCont}
   bg-green-200
-  transition-all
   dark:bg-green-200/50
-  dark:border-transparent
-  dark:hover:border-green-700
-  hover:scale-105
-  hover:border-green-600
+  hover:ring-green-600
 `
-const pokemonCardCont__pink = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__pink = `
+  ${pokemonCardCont}
   bg-pink-200
-  transition-all
   dark:bg-pink-200/50
-  dark:border-transparent
-  dark:hover:border-pink-700
-  hover:scale-105
-  hover:border-pink-600
+  hover:ring-pink-600
 `
-const pokemonCardCont__purple = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__purple = `
+  ${pokemonCardCont}
   bg-purple-300
-  transition-all
   dark:bg-purple-200/50
-  dark:border-transparent
-  dark:hover:border-purple-700
-  hover:scale-105
-  hover:border-purple-600
+  hover:ring-purple-600
 `
-const pokemonCardCont__red = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__red = `
+  ${pokemonCardCont}
   bg-red-300
-  transition-all
   dark:bg-red-200/50
-  dark:border-transparent
-  dark:hover:border-red-700
-  hover:scale-105
-  hover:border-red-600
+  hover:ring-red-600
 `
-const pokemonCardCont__white = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__white = `
+  ${pokemonCardCont}
   bg-gray-300
-  transition-all
   dark:bg-gray-200/50
-  dark:border-transparent
-  dark:hover:border-gray-700
-  hover:scale-105
-  hover:border-gray-600
+  hover:ring-gray-600
 `
-const pokemonCardCont__yellow = `
-  flex 
-  relative 
-  flex-col 
-  w-[300px] 
-  min-h-[300px]
-  box-border 
-  p-5 
-  border-2
-  rounded-md 
+export const pokemonCardCont__yellow = `
+  ${pokemonCardCont}
   bg-yellow-200
-  transition-all
   dark:bg-yellow-200/50
-  dark:border-transparent
-  dark:hover:border-yellow-700
-  hover:scale-105
-  hover:border-yellow-600
+  hover:ring-yellow-600
 `
-
-
-export {
-  pokemonCardCont__black,
-  pokemonCardCont__blue,
-  pokemonCardCont__brown,
-  pokemonCardCont__gray,
-  pokemonCardCont__green,
-  pokemonCardCont__pink,
-  pokemonCardCont__purple,
-  pokemonCardCont__red,
-  pokemonCardCont__white,
-  pokemonCardCont__yellow
-}
